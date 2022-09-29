@@ -21,3 +21,8 @@ document.getElementById("btn1").addEventListener("click", () => {
         "mensagem": mensagem
     });
 })
+
+// 10 + 23
+//five plus two
+//twelve - five
+//-123 + -567

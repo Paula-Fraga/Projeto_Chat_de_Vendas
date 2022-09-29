@@ -1,5 +1,5 @@
 from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
 
 class Bot():
 
@@ -18,8 +18,9 @@ class Bot():
             logic_adapters=["chatterbot.logic.MathematicalEvaluation"]
         )
         
-        self.trainer = ListTrainer(self._bot)
-    
+        self.trainer = ChatterBotCorpusTrainer(self._bot)
+        self.trainer_math = ChatterBotCorpusTrainer(self._bot_math)
+
     def get_response_chat_bot(self, message: str):
         resp = ""
 
@@ -32,5 +33,10 @@ class Bot():
 
     # Método onde será passado as listas de treinamento do bot.
     def train_bot(self, *messages):
+        
+        self.trainer.train('chatterbot.corpus.portuguese')
+        self.trainer_math.train('chatterbot.corpus.portuguese')
+
+        self.trainer = ListTrainer(self._bot)
         for i in range(len(messages)):
             self.trainer.train(messages[i])

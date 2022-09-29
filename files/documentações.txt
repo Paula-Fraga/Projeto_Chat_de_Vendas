@@ -6,3 +6,11 @@ https://flask-socketio.readthedocs.io/en/latest/getting_started.html
 
 # Como criar um chat usando JS e Flask
 https://www.youtube.com/watch?v=uYUoT1tKVh8&t=754s
+
+# Chatterbot corpus
+https://chatterbot.readthedocs.io/en/stable/corpus.html
+
+#Adaptadores lógicos
+https://chatterbot.readthedocs.io/en/latest/logic/index.html
+
+https://escoladeia.com.br/construindo-um-chatbot-em-10-minutos-no-python/

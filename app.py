@@ -5,14 +5,8 @@ from flask_restful import Api
 from chatbot import Bot
 from train_list import TrainList
 
-# Classes controladoras
-from controllers.teste_socket import TesteSocket
-
 app = Flask(__name__)
 api = Api(app)
-
-# Meus controladores
-api.add_resource(TesteSocket, '/teste')
 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -29,9 +23,8 @@ def conversation_chatbot_socket(json):
     # Isso vai emitir a mensagem para o evento para o lado do cliente
     socketio.emit('messages', str(res_bot))
 
-    
 if __name__ == "__main__":
     port = 8080
     print(f"Run server in port {port}")
     bot.train_bot(TrainList.first_list_conversation("R2-D2"))
-    socketio.run(app, debug=False, port=port)
+    socketio.run(app, debug=False, port=port) # rodar o servidor
