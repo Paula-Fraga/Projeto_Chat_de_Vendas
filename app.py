@@ -26,5 +26,9 @@ def conversation_chatbot_socket(json):
 if __name__ == "__main__":
     port = 8080
     print(f"Run server in port {port}")
-    bot.train_bot(TrainList.first_list_conversation("R2-D2"))
+    bot.train_bot(
+        TrainList.first_list_conversation("R2-D2"), 
+        TrainList.placas_video(),
+        TrainList.processadores()
+    )
     socketio.run(app, debug=False, port=port) # rodar o servidor
