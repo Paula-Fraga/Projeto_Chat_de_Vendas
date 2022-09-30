@@ -5,18 +5,8 @@ from flask_restful import Api
 from chatbot import Bot
 from train_list import TrainList
 
-from firebase_admin import credentials, firestore, initialize_app
-
 app = Flask(__name__)
 api = Api(app)
-
-# Initialize Firestore DB
-cred = credentials.Certificate('key.json')
-default_app = initialize_app(cred)
-db = firestore.client()
-
-db = firestore.client()
-todo_ref = db.collection('todos')
 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
