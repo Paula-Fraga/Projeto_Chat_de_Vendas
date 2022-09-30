@@ -21,8 +21,6 @@ class Bot():
 
     # Método onde será passado as listas de treinamento do bot.
     def train_bot(self, *messages):
-        
-        # self.trainer.train('chatterbot.corpus.portuguese')
 
         self.trainer = ListTrainer(self._bot)
         for i in range(len(messages)):
