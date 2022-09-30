@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from repository.hardware_repository import HardwareRepository
 
 class TrainList:
@@ -44,23 +43,20 @@ class TrainList:
         amd_all_placas = store_bd.filter_list(
             lambda fabricante: fabricante == "AMD",
             store_bd.placas_de_video,
-            key_find="fabricante",
-            key_return="name"
+            key_find="fabricante"
         )
 
         # Apenas funções da AMD.
         nvidia_all_placas = store_bd.filter_list(
             lambda fabricante: fabricante == "NVIDIA",
             store_bd.placas_de_video,
-            key_find="fabricante",
-            key_return="name"
+            key_find="fabricante"
         )
 
         #custo benefício
         cus_benefi_placas_video = store_bd.filter_list(
             lambda price: price < 600,
             key_find="price",
-            key_return="name",
             values=store_bd.placas_de_video
         )
 
@@ -68,7 +64,6 @@ class TrainList:
         top_linha_placa_de_video = store_bd.filter_list(
             lambda price: price >= 600,
             key_find="price",
-            key_return="name",
             values=store_bd.placas_de_video
         )
 
@@ -111,15 +106,13 @@ class TrainList:
         all_processadores_intel = store_bd.filter_list(
             conditional=lambda fabricante: fabricante == "INTEL",
             key_find="fabricante",
-            values=all_processadores,
-            key_return="name"
+            values=all_processadores
         )
 
         all_processadores_amd = store_bd.filter_list(
             conditional=lambda fabricante: fabricante == "AMD",
             key_find="fabricante",
-            values=all_processadores,
-            key_return="name"
+            values=all_processadores
         )
 
         return [

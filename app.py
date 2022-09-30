@@ -5,8 +5,18 @@ from flask_restful import Api
 from chatbot import Bot
 from train_list import TrainList
 
+from firebase_admin import credentials, firestore, initialize_app
+
 app = Flask(__name__)
 api = Api(app)
+
+# Initialize Firestore DB
+cred = credentials.Certificate('key.json')
+default_app = initialize_app(cred)
+db = firestore.client()
+
+db = firestore.client()
+todo_ref = db.collection('todos')
 
 socketio = SocketIO(app, cors_allowed_origins="*")
 
@@ -26,9 +36,11 @@ def conversation_chatbot_socket(json):
 if __name__ == "__main__":
     port = 8080
     print(f"Run server in port {port}")
+
     bot.train_bot(
         TrainList.first_list_conversation("R2-D2"), 
         TrainList.placas_video(),
         TrainList.processadores()
     )
+
     socketio.run(app, debug=False, port=port) # rodar o servidor

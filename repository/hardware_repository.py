@@ -34,8 +34,8 @@ class HardwareRepository:
         self.processadores.append(Processadores(990, "AMD RYZEN 5 4600G", "AMD", 6))
         self.processadores.append(Processadores(1040.5, "AMD RYZEN 5 5500", "AMD", 2))
 
-    def filter_list(self, conditional, values: list, key_find: str, key_return: str = "name"):
-        filtered_list = [str((value.__dict__)[key_return]) for value in values if conditional(
+    def filter_list(self, conditional, values: list, key_find: str):
+        filtered_list = [value.get_name() for value in values if conditional(
             (value.__dict__)[key_find]
         )]
 

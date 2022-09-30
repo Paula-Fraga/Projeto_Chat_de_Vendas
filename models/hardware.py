@@ -4,6 +4,9 @@ class Hardware:
         self.price = price
         self.name = name
         self.fabricante = fabricante
+    
+    def get_name(self):
+        return self.name
 
 class PlacaDeVideo(Hardware):
 
