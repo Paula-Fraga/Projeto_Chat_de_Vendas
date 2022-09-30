@@ -14,3 +14,6 @@ https://chatterbot.readthedocs.io/en/stable/corpus.html
 https://chatterbot.readthedocs.io/en/latest/logic/index.html
 
 https://escoladeia.com.br/construindo-um-chatbot-em-10-minutos-no-python/
+
+# Documentação e middleware
+https://medium.com/@nschairer/flask-api-authentication-with-firebase-9affc7b64715

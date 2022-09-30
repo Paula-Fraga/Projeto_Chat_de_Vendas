@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_socketio import SocketIO
 from flask_restful import Api
 
@@ -11,6 +11,10 @@ api = Api(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 bot = Bot()
+
+@app.route('/', methods=['GET'])
+def home_page():
+    return render_template('index.html')
 
 @socketio.on('messages') # (<nome do evento do socket>)
 def conversation_chatbot_socket(json):
@@ -33,4 +37,4 @@ if __name__ == "__main__":
         TrainList.processadores()
     )
 
-    socketio.run(app, debug=False, port=port) # rodar o servidor
+    socketio.run(app, debug=True, port=port) # rodar o servidor
