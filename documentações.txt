@@ -1,8 +1,0 @@
-#Flask cors
-https://flask-cors.readthedocs.io/en/latest/index.html
-
-# Flask Socket
-https://flask-socketio.readthedocs.io/en/latest/getting_started.html
-
-# Como criar um chat usando JS e Flask
-https://www.youtube.com/watch?v=uYUoT1tKVh8&t=754s

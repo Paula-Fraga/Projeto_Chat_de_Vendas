@@ -1,4 +1,4 @@
-const url = "http://127.0.0.1:8080/";
+const url = "http://127.0.0.1:8080";
 
 var socket = io(url);
 
@@ -14,9 +14,15 @@ socket.on('messages', function (data) {
 });
 
 document.getElementById("btn1").addEventListener("click", () => {
+    console.log("Sending message...")
     const mensagem = document.getElementById("field1").value
     //Vai enviar o json para o evento 'messages'
     socket.emit("messages", {
         "mensagem": mensagem
     });
 })
+
+// 10 + 23
+//five plus two
+//twelve - five
+//-123 + -567
